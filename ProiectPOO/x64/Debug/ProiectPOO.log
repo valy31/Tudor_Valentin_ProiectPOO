@@ -1,0 +1,5 @@
+﻿  ProiectPOO.cpp
+C:\Users\valy0\Desktop\Proiect POO\ProiectPOO\ProiectPOO.cpp(194,26): warning C4305: 'initializing': truncation from 'double' to 'float'
+C:\Users\valy0\Desktop\Proiect POO\ProiectPOO\ProiectPOO.cpp(196,13): warning C4326: return type of 'main' should be 'int' instead of 'void'
+C:\Users\valy0\Desktop\Proiect POO\ProiectPOO\ProiectPOO.cpp(241,24): warning C4305: 'argument': truncation from 'double' to 'float'
+  ProiectPOO.vcxproj -> C:\Users\valy0\Desktop\Proiect POO\ProiectPOO\x64\Debug\ProiectPOO.exe
