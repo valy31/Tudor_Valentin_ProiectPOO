@@ -16,7 +16,7 @@ public:
 	virtual ~Magazin() {}
 };
 
-class Erou: public Vitrina, public Magazin {
+class Erou : public Vitrina, public Magazin {
 private:
 	string nume;
 	float pretErou;
@@ -27,11 +27,11 @@ private:
 
 public:
 	void afisareVitrina() {
-		cout << "Eroul "<<nume<<" a fost pus in vitrina\n";
+		cout << "Eroul " << nume << " a fost pus in vitrina\n";
 	}
 
 	void afisareMagazin() {
-		cout << "Eroul "<<nume<<" apare in magazin\n";
+		cout << "Eroul " << nume << " apare in magazin\n";
 	}
 
 	string getNume() {
@@ -209,18 +209,18 @@ public:
 	void scrieErouInFisierBin(char* numeFisier) {
 		ofstream fisier(numeFisier, std::ios::binary);
 
-			Erou erou;
-			fisier.write(erou.nume.c_str(), erou.nume.size() + 1);
-			fisier.write((const char*)&erou.pretErou, sizeof(float));
-			fisier.write((const char*)&erou.anAparitie, sizeof(int));
-			fisier.write((const char*)&erou.nrCutii, sizeof(int));
+		Erou erou;
+		fisier.write(erou.nume.c_str(), erou.nume.size() + 1);
+		fisier.write((const char*)&erou.pretErou, sizeof(float));
+		fisier.write((const char*)&erou.anAparitie, sizeof(int));
+		fisier.write((const char*)&erou.nrCutii, sizeof(int));
 
-			for (int i = 0; i < erou.nrCutii; i++) {
-				fisier.write((const char*)&erou.bucati[i], sizeof(int));
-			}
+		for (int i = 0; i < erou.nrCutii; i++) {
+			fisier.write((const char*)&erou.bucati[i], sizeof(int));
+		}
 
-			fisier.close();
-			std::cout << "Eroul a fost scris in fisierul binar.\n";
+		fisier.close();
+		std::cout << "Eroul a fost scris in fisierul binar.\n";
 	}
 };
 float Erou::TVA = 10;
@@ -238,7 +238,7 @@ int valoareErou(Erou e) {
 
 /*-------------------------------------------------------*/
 
-class Carte: public Vitrina, public Magazin {
+class Carte : public Vitrina, public Magazin {
 private:
 	string titlu;
 	float pretCarte;
@@ -434,20 +434,20 @@ public:
 	void scrieCarte(const char* fisier) {
 		ofstream fout(fisier);
 
-			fout << "Titlu: " << getTitlu() << "\n";
-			fout << "Limba: " << getLimba() << "\n";
-			fout << "Categorie: " << getCategorie() << "\n";
-			fout << "Pret: " << getPretCarte() << "\n";
-			fout << "Nr volume: " << getNrVolume() << "\n";
-			fout << "Nr carti/vol: ";
-			for (int i = 0; i < getNrVolume(); i++) {
-				fout << getNrCarti(i) << " ";
-			}
-			fout << "\nTVA: " << Carte::getTVA() << "\n";
-			fout << "----------\n";
+		fout << "Titlu: " << getTitlu() << "\n";
+		fout << "Limba: " << getLimba() << "\n";
+		fout << "Categorie: " << getCategorie() << "\n";
+		fout << "Pret: " << getPretCarte() << "\n";
+		fout << "Nr volume: " << getNrVolume() << "\n";
+		fout << "Nr carti/vol: ";
+		for (int i = 0; i < getNrVolume(); i++) {
+			fout << getNrCarti(i) << " ";
+		}
+		fout << "\nTVA: " << Carte::getTVA() << "\n";
+		fout << "----------\n";
 
-			fout.close();
-			cout << "Cartea a fost scrisa in fisier.\n";
+		fout.close();
+		cout << "Cartea a fost scrisa in fisier.\n";
 	}
 
 };
@@ -455,7 +455,7 @@ float Carte::TVA = 5;
 
 /*-------------------------------------------------------*/
 
-class JocVideo: public Vitrina, public Magazin {
+class JocVideo : public Vitrina, public Magazin {
 private:
 	string denumire;
 	const string productie;
@@ -635,18 +635,18 @@ public:
 	void scrieJocVideo(const char* fisier) {
 		ofstream fout(fisier);
 
-			fout << "Denumire joc: " << getDenumire() << "\n";
-			fout << "Productie: " << getProductie() << "\n";
-			fout << "Pret de inceput / set: " << getPretJoc() << "\n";
-			fout << "Seturi disponibile: " << getNrSeturi() << "\n";
-			fout << "Jocuri/set: ";
-			for (int i = 0; i < getNrSeturi(); i++) {
-				fout << getSetJocuri(i) << " ";
-			}
-			fout << "\nReducere aplicata: " << JocVideo::getReducere() * 100 << "%\n";
-			fout << "----------\n";
-			fout.close();
-			std::cout << "Jocul video a fost scris in fisier.\n";
+		fout << "Denumire joc: " << getDenumire() << "\n";
+		fout << "Productie: " << getProductie() << "\n";
+		fout << "Pret de inceput / set: " << getPretJoc() << "\n";
+		fout << "Seturi disponibile: " << getNrSeturi() << "\n";
+		fout << "Jocuri/set: ";
+		for (int i = 0; i < getNrSeturi(); i++) {
+			fout << getSetJocuri(i) << " ";
+		}
+		fout << "\nReducere aplicata: " << JocVideo::getReducere() * 100 << "%\n";
+		fout << "----------\n";
+		fout.close();
+		std::cout << "Jocul video a fost scris in fisier.\n";
 	}
 };
 float JocVideo::reducere = 0.1;
@@ -702,7 +702,7 @@ public:
 		if (this != &e) {
 			this->numeEchipa = e.numeEchipa;
 			this->nrMembriMax = e.nrMembriMax;
-			
+
 			for (int i = 0; i < this->nrMembriMax; i++)
 			{
 				this->membruEchipa[i] = e.membruEchipa[i];
@@ -713,40 +713,40 @@ public:
 
 	void scrieEchipaInFisierBin(const char* numeFisier) {
 		ofstream fisier(numeFisier, std::ios::binary);
-			Echipa echipa;
+		Echipa echipa;
 
-			fisier.write(echipa.numeEchipa.c_str(), echipa.numeEchipa.length() + 1);
-			fisier.write((const char*)(&echipa.nrMembriMax), sizeof(int));
+		fisier.write(echipa.numeEchipa.c_str(), echipa.numeEchipa.length() + 1);
+		fisier.write((const char*)(&echipa.nrMembriMax), sizeof(int));
 
-			for (int i = 0; i < 5; i++) {
-				// Scrie datele pentru fiecare membru al echipei
-				fisier.write(echipa.membruEchipa[i].getNume().c_str(), echipa.membruEchipa[i].getNume().length() + 1);
-				
-				float pretErou = echipa.membruEchipa[i].getPretErou();
-				fisier.write((const char*)&pretErou, sizeof(float));
+		for (int i = 0; i < 5; i++) {
+			// Scrie datele pentru fiecare membru al echipei
+			fisier.write(echipa.membruEchipa[i].getNume().c_str(), echipa.membruEchipa[i].getNume().length() + 1);
 
-				int anAparitie = echipa.membruEchipa[i].getAnAparitie();
-				fisier.write((const char*)&anAparitie, sizeof(int));
+			float pretErou = echipa.membruEchipa[i].getPretErou();
+			fisier.write((const char*)&pretErou, sizeof(float));
 
-				int nrCutii = echipa.membruEchipa[i].getNrCutii();
-				fisier.write((const char*)&nrCutii, sizeof(int));
+			int anAparitie = echipa.membruEchipa[i].getAnAparitie();
+			fisier.write((const char*)&anAparitie, sizeof(int));
 
-				for (int j = 0; j < echipa.membruEchipa[i].getNrCutii(); j++) {
-					float nrBucati = echipa.membruEchipa[i].getBucati(j);
-					fisier.write((const char*)&nrBucati, sizeof(int));
-				}
+			int nrCutii = echipa.membruEchipa[i].getNrCutii();
+			fisier.write((const char*)&nrCutii, sizeof(int));
+
+			for (int j = 0; j < echipa.membruEchipa[i].getNrCutii(); j++) {
+				float nrBucati = echipa.membruEchipa[i].getBucati(j);
+				fisier.write((const char*)&nrBucati, sizeof(int));
 			}
-
-			fisier.close();
-			std::cout << "Echipa a fost scrisa in fisierul binar.\n";
 		}
+
+		fisier.close();
+		std::cout << "Echipa a fost scrisa in fisierul binar.\n";
+	}
 };
 
 class SuperErou : public Erou {
 private:
 	string superputere;
 public:
-	
+
 	SuperErou(string nume, float pretErou, const int anAparitie, int nrCutii, int* bucati, string superputere)
 		: Erou(nume, pretErou, anAparitie, nrCutii, bucati), superputere(superputere) {}
 
@@ -767,7 +767,7 @@ public:
 
 	SuperErou& operator=(const SuperErou& super) {
 		if (this != &super) {
-			Erou::operator=(super); 
+			Erou::operator=(super);
 			superputere = super.superputere;
 		}
 		return *this;
@@ -780,7 +780,7 @@ private:
 	string genJoc;
 
 public:
-	
+
 	SerieJoc(string denumire, const string productie, float pretJoc, int* setJocuri, string genJoc)
 		: JocVideo(denumire, productie, pretJoc, setJocuri), genJoc(genJoc) {}
 
@@ -798,10 +798,10 @@ public:
 	void afisareGenJoc() {
 		cout << "Genul jocului " << getDenumire() << " este: " << genJoc << endl;
 	}
-	
+
 	SerieJoc& operator=(const SerieJoc& sj) {
 		if (this != &sj) {
-			JocVideo::operator=(sj); 
+			JocVideo::operator=(sj);
 			genJoc = sj.genJoc;
 		}
 		return *this;
@@ -955,11 +955,11 @@ void main() {
 			carteMatrice[i][j].afisare();
 		}
 		cout << endl;
-	} 
-	Carte c1;
-	c1.scrieCarte("carti.txt");
-	JocVideo j1;
-	j1.scrieJocVideo("jocuri.txt");
+	}
+	Carte crt;
+	crt.scrieCarte("carti.txt");
+	JocVideo joc;
+	joc.scrieJocVideo("jocuri.txt");
 
 	Echipa ech;
 	ech.scrieEchipaInFisierBin("echipa.bin");
@@ -973,28 +973,29 @@ void main() {
 	SerieJoc sj1("Warcraft 3", "Blizzard", 50, setJocuri, "Strategy-MMORPG");
 	sj1.afisare();
 	sj1.afisareGenJoc(); cout << endl;
-	
+
 	SerieJoc sj2;
 	sj2.afisare();
 	sj2.setGenJoc("Action");
 	sj2.afisareGenJoc();
 
 	SuperErou supererou;
-	Erou* erouP = &supererou; 
-	erouP->afisare(); 
+	Erou* erouP = &supererou;
+	erouP->afisare();
 	supererou.afisareSuperputere(); cout << endl;
 
 	SerieJoc seriejoc;
 	JocVideo* JocVideoP = &seriejoc;
-	JocVideoP->afisare(); 
+	JocVideoP->afisare();
 	seriejoc.afisareGenJoc(); cout << endl;
 
-	Magazin* produseMagazin[] = { new Erou("Hulk",25,bucati), new Carte("Morometii",25,nrCarti), new JocVideo("FC 24",setJocuri) };
-	Vitrina* produseVitrina[] = { new Erou("Hulk",25,bucati), new Carte("Morometii",25,nrCarti), new JocVideo("FC 24",setJocuri) };
-	
-	for (int i = 0; i <= 2; i++) {
+	Magazin* produseMagazin[] = { new Erou("Hulk",25,bucati), new Carte("Morometii",25,nrCarti), new JocVideo("FC 24",setJocuri),
+								  new Carte, new JocVideo, new Erou, new Erou, new JocVideo, new Carte, new Carte};
+	Vitrina* produseVitrina[] = { new Erou("Hulk",25,bucati), new Carte("Morometii",25,nrCarti), new JocVideo("FC 24",setJocuri),
+								  new Carte, new JocVideo, new Erou, new Erou, new JocVideo, new Carte, new Carte };
+
+	for (int i = 0; i <10; i++) {
 		produseMagazin[i]->afisareMagazin();
 		produseVitrina[i]->afisareVitrina();
 	}
-	
 }
