@@ -809,160 +809,23 @@ public:
 };
 
 void main() {
-	cout << "Produse din vitrina: " << "\n\nMachete eroi\n" << endl;
-	Erou e1;
-	e1.afisare(); /*Eroul 1 creat cu constructorul 1*/
-
 	int* bucati = new int[3];
 	for (int i = 0; i < 3; i++) {
 		bucati[i] = 1 + i;
 	}
-
-	Erou e2("Hulk", 50, 2010, 2, bucati);
-	e2.afisare(); /*Eroul 2 creat cu constructorul 2*/
-	Erou::setTVA(9);
-
-	Erou e3("Batman", 125, bucati);
-	e3.afisare(); /*Eroul 3 creat cu constructorul 3*/
-
-	cout << "Carti\n" << endl;
-
-	Carte c1;
-	c1.afisare();
 
 	int* nrCarti = new int[5];
 	for (int i = 0; i < 5; i++) {
 		nrCarti[i] = i + 1;
 	}
 
-	Carte c2("Codul lui Da Vinci", 40, nrCarti);
-	c2.afisare();
-	Carte::setTVA(6);
-
-	Carte c3("Poesii", 50, "Romana", "Poezii", 1, nrCarti);
-	c3.afisare();
-
-	cout << "Jocuri video\n" << endl;
-	JocVideo j1;
-	j1.afisare();
-
 	int* setJocuri = new int[3];
 	for (int i = 0; i < 3; i++) {
 		setJocuri[i] = 1;
 	}
-	JocVideo j2("FC 24", "EA SPORTS", 250, setJocuri);
-	j2.afisare();
 
-	JocVideo::setReducere(0.05);
-	JocVideo j3("Battlefield 1942", setJocuri);
-	j3.afisare();
-
-	cout << e1.getNume(); e1.setNume("Spider-Man"); cout << " redenumit in " << e1.getNume() << endl;
-
-	cout << "Nr carti din volumul 2 Morometii: " << c1.getNrCarti(1) << endl; /* Incepe de la 0 */
-
-	cout << "Pretul jocului " << j2.getDenumire() << " -> " << j2.getPretJoc() << " creste cu 10 ron -> "; j2.setPretJoc(j2.getPretJoc() + 10);
-	cout << j2.getPretJoc() << endl;
-
-	cout << "Valoarea totala a figurinei 1 - " << e1.getNume() << " este de " << valoareErou(e1) << " ron" << endl;
-	cout << "Pentru jocul 1 - " << j1.getDenumire() << endl; jocPretMaiMicDe(j1, 200);
-
-	Erou e4 = e1;
-	e4.afisare();
-
-	Carte c4 = c3;
-	c4.afisare();
-
-	JocVideo j4 = j2;
-	j2.afisare();
-
-	if (c3 < c1) {
-		cout << c3.getTitlu() << " are mai putine volume fata de " << c1.getTitlu() << endl;
-	}
-	else {
-		cout << c3.getTitlu() << " are mai multe volume / acelasi nr de volume ca " << c1.getTitlu() << endl;
-	}
-
-	if (j1 > j2) {
-		cout << j1.getDenumire() << " are pretul mai mare decat " << j2.getDenumire() << endl;
-	}
-	else {
-		cout << j1.getDenumire() << " are pretul mai mic sau egal ca " << j2.getDenumire() << endl;
-	}
-
-	if (e2 < e3) {
-		cout << e2.getNume() << " a aparut inainte lui " << e3.getNume() << endl;
-	}
-	else {
-		cout << e2.getNume() << " a aparut dupa sau odata cu " << e3.getNume() << endl;
-	}
-	cout << "Citire erou 5:" << endl;
-	Erou e5; cin >> e5;		cout << "-----" << endl;
-	e5.afisare();			cout << endl;
-	cout << "Nr figurine pentru " << e5.getNume() << ": " << e5() << endl;
-
-	cout << "Citire carte 5:" << endl;
-	Carte c5; cin >> c5;	cout << "-----" << endl;
-	c5.afisare();			cout << endl;
-	cout << "Nr carti pentru " << c5.getTitlu() << ": " << c5() << endl;
-
-	cout << "Citire joc 5:" << endl;
-	JocVideo j5; cin >> j5;	cout << "-----" << endl;
-	j5.afisare();			cout << endl;
-	cout << "Nr jocuri pentru " << j5.getDenumire() << ": " << j5() << endl;
-
-	Erou erouVector[10];
-	cout << "\nUrmeaza citirea a 3 eroi dintr-un vector:" << endl;
-	for (int i = 0; i < 3; i++) {
-		cin >> erouVector[i];
-	}
-	cout << "-----" << endl;
-	for (int i = 0; i < 3; i++) {
-		erouVector[i].afisare();
-	}
-
-	Carte carteVector[10];
-	cout << "\nUrmeaza citirea a 3 carti dintr-un vector:" << endl;
-	for (int i = 0; i < 3; i++) {
-		cin >> carteVector[i];
-	}
-	cout << "-----" << endl;
-	for (int i = 0; i < 3; i++) {
-		carteVector[i].afisare();
-	}
-
-	JocVideo jocVector[10];
-	cout << "\nUrmeaza citirea a 3 jocuri dintr-un vector:" << endl;
-	for (int i = 0; i < 3; i++) {
-		cin >> jocVector[i];
-	}
-	cout << "-----" << endl;
-	for (int i = 0; i < 3; i++) {
-		jocVector[i].afisare();
-	}
-
-	Carte carteMatrice[10][10];
-	cout << "\nUrmeaza citirea a 4 carti dintr-o matrice:" << endl;
-	for (int i = 0; i < 2; i++) {
-		for (int j = 0; j < 2; j++) {
-			cout << "Carte[" << i << "][" << j << "]:" << endl;
-			cin >> carteMatrice[i][j];
-		}
-	}
-	cout << "-----" << endl;
-	for (int i = 0; i < 2; i++) {
-		for (int j = 0; j < 2; j++) {
-			carteMatrice[i][j].afisare();
-		}
-		cout << endl;
-	}
-	Carte crt;
-	crt.scrieCarte("carti.txt");
-	JocVideo joc;
-	joc.scrieJocVideo("jocuri.txt");
-
-	Echipa ech;
-	ech.scrieEchipaInFisierBin("echipa.bin");
+	//două clase care să moștenească una, doua dintre clasele existente deja in proiect 
+	//relație de "is-a"
 
 	Erou e;
 	SuperErou super("Hulk", 25, 2003, 1, bucati, "Forta infinita");
@@ -988,13 +851,15 @@ void main() {
 	JocVideo* JocVideoP = &seriejoc;
 	JocVideoP->afisare();
 	seriejoc.afisareGenJoc(); cout << endl;
+	
+	//late-binding
 
 	Magazin* produseMagazin[] = { new Erou("Hulk",25,bucati), new Carte("Morometii",25,nrCarti), new JocVideo("FC 24",setJocuri),
-								  new Carte, new JocVideo, new Erou, new Erou, new JocVideo, new Carte, new Carte};
+								  new Carte, new JocVideo, new Erou, new Erou, new JocVideo, new Carte, new Carte };
 	Vitrina* produseVitrina[] = { new Erou("Hulk",25,bucati), new Carte("Morometii",25,nrCarti), new JocVideo("FC 24",setJocuri),
 								  new Carte, new JocVideo, new Erou, new Erou, new JocVideo, new Carte, new Carte };
 
-	for (int i = 0; i <10; i++) {
+	for (int i = 0; i < 10; i++) {
 		produseMagazin[i]->afisareMagazin();
 		produseVitrina[i]->afisareVitrina();
 	}
